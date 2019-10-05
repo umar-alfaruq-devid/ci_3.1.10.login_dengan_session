@@ -12,11 +12,13 @@
 			$this->load->model('account/dataUser');
 		}
 
-		public function index() {
+		public function index()
+		{
 			$this->load->view('auth/login');
 		}
 
-		public function loginAct() {
+		public function loginAct()
+		{
 			$user = $this->input->post('user');
 			$pass = $this->input->post('pass');
 
@@ -67,6 +69,20 @@
 					);
 					$this->load->view('alert/err', $informasi);
 				}
+			}
+		}
+
+		public function logout()
+		{
+			if(session_destroy()) {
+				redirect('login');
+			} else {
+				$informasi = array(
+					'message' => 'Some thing whent wrong!',
+					'buttonText' => 'Go home',
+					'getLink' => 'home'
+				);
+				$this->load->view('alert/err', $informasi);
 			}
 		}
 
