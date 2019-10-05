@@ -46,7 +46,7 @@
 					
 					if($sessUser && $sessPass) {
 						$informasi = array(
-							'message' => 'Login success',
+							'message' => 'Login success selamat datang '.'"'.$this->session->userdata('username').'"',
 							'buttonText' => 'Go home',
 							'getLink' => 'home'
 						);
