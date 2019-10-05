@@ -40,12 +40,25 @@
 			} else {
 				$cekData = $this->dataUser->getUser($user, $pass);
 				if($cekData->num_rows() != false) {
-					$informasi = array(
-						'message' => 'Login success',
-						'buttonText' => 'Go home',
-						'getLink' => 'home'
-					);
-					$this->load->view('alert/success', $informasi);
+					$this->session->set_userdata($cekData->row_array());
+					$sessUser = $this->session->userdata('username');
+					$sessPass = $this->session->userdata('password');
+					
+					if($sessUser && $sessPass) {
+						$informasi = array(
+							'message' => 'Login success',
+							'buttonText' => 'Go home',
+							'getLink' => 'home'
+						);
+						$this->load->view('alert/success', $informasi);
+					} else {
+						$informasi = array(
+							'message' => 'Login failed!',
+							'buttonText' => 'Login',
+							'getLink' => 'login'
+						);
+						$this->load->view('alert/err', $informasi);
+					}
 				} else {
 					$informasi = array(
 						'message' => 'Login failed!',
