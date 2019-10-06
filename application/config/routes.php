@@ -67,3 +67,9 @@ $route['loginAct'] = 'loginController/loginAct';
 
 $route['signup'] = 'signupController/index';
 $route['signupAct'] = 'signupController/signupAct';
+
+
+/**
+ * Logout routes
+ */
+$route['logout'] = 'loginController/logout';
