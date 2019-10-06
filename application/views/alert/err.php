@@ -18,7 +18,7 @@
 
 		@media screen and (min-width: 768px) {
 			body {
-				background-image: url('../assets/img/lp.jpg');
+				/*background-image: url('../assets/img/lp.jpg');*/
 				background-blend-mode: soft-light;
 				background-repeat: no-repeat;
 				-webkit-background-size: cover;
